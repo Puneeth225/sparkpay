@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate-For the NEEDS</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="n1/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="n1/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="n1/favicon/favicon.ico">
+<link rel="manifest" href="n1/favicon/favicon.ico">
+    <link rel="stylesheet" href="stylespark.css">
+</head>
+<body style="background-color: lightblue; margin: 0px;" >
+    <header><h1>Welcome Here</h1></header>
+    <nav>
+        <a href="#" >Home</a>
+        <a href="#" >About Us</a>
+        <a href="#" >Contact</a>
+        <a href = "#" target="_blank" >Gallery</a>
+        <a class="itemalign" href="#" >Log in/Sign up</a>
+    </nav>
+    <!-- <img src="n1/Water fall HD.jfif">
+    <img src="n1/Nature HD.jfif"> -->
+    <img src="n1/original.jpg">
+    <img src="n1/spark0991.JPG">
+    <a href="#" target="_blank" >
+    <img id="rzp-button1" src="n1/Donate-button.jpg" style="width: 100px; height: 100px; padding-top: 100px; padding-right: 50px; " align="right" ></a>
+    <p>"When we give cheerfully and accept gratefully, everyone is blessed."</p>
+    <p>“A bone to the dog is not charity. Charity is the bone shared with the dog, when you are just as hungry as the dog.”
+        ― Jack London</p>
+        <!-- <button id="rzp-button1">Pay</button> -->
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+        var options = {
+            "key": "rzp_test_Xdk3WUUJUj86rx",
+            "amount": "0",
+            "currency": "INR",
+            "name": "Spark Pay",
+            "description": "Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": "order_JLgm1wduhWOwfU", 
+            "handler": function (response){
+                alert(response.razorpay_payment_id);
+                alert(response.razorpay_order_id);
+                alert(response.razorpay_signature)
+            },
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9999999999"
+            },
+            "success":{
+  "razorpay_payment_id": "pay_29QQoUBi66xm2f",
+  "razorpay_order_id": "order_JLgm1wduhWOwfU",
+  "razorpay_signature": "9ef4dffbfd84f1318f6739a3ce19f9d85851857ae648f114332d8401e0949a3d"
+},
+"handler": function (response){
+    alert(response.razorpay_payment_id);
+    alert(response.razorpay_order_id);
+    alert(response.razorpay_signature)},
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response){
+                alert(response.error.code);
+                alert(response.error.description);
+                alert(response.error.source);
+                alert(response.error.step);
+                alert(response.error.reason);
+                alert(response.error.metadata.order_id);
+                alert(response.error.metadata.payment_id);
+        });
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+    <nav>
+        <footer>
+            <a href="#">FAQ</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms of service</a>
+            <a href="#">Copyright</a>
+            <a href="#">Contribute</a>
+        </footer>
+    </nav>
+    
+
+</body>
+</html>
